@@ -3,14 +3,12 @@
 //URLs de la API de backend para obtener access_token y refresh_token 
 
 
-const AUTH_URL = import.meta.env.VITE_AUTH_URL ?
-                    import.meta.env.VITE_API_URL+'/token/'
-                    :'http://127.0.0.1:8000/api/token/';
+const AUTH_URL = 'https://gian22luca.pythonanywhere.com/api/token/';
+//'http://127.0.0.1:8000/api/token/';
 
 
-const REFRESH_URL = import.meta.env.VITE_AUTH_URL ?
-                        import.meta.env.VITE_API_URL+'/token/refresh/'
-                        :'http://127.0.0.1:8000/api/token/refresh/';
+const REFRESH_URL = 'https://gian22luca.pythonanywhere.com/api/token/refresh/';
+//'http://127.0.0.1:8000/api/token/refresh/';
 
 
 

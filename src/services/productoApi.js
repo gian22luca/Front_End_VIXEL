@@ -1,9 +1,8 @@
 import * as tokenService from '../services/tokenService'
 
 
-const BASE_URL = import.meta.env.VITE_AUTH_URL ?
-                    import.meta.env.VITE_API_URL+'/productos/'
-                    :'http://127.0.0.1:8000/api/productos/';
+const BASE_URL = 'https://gian22luca.pythonanywhere.com/api/productos/';
+//'http://127.0.0.1:8000/api/productos/';
 
 
 /**
