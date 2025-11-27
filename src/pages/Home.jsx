@@ -1,9 +1,34 @@
 
 import { ProductCard } from '../components/ProductCard'
 import { ContactForm } from '../components/ContactForm'
-import productos from '../data/productos'
+import { useEffect, useState } from 'react'
+import { getProductos } from '../services/productoApi'
+
+const BASE_IMG_URL = 'http://localhost:8000/'
+
+
 
 export function Home(){
+    const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
+
+    useEffect(() => {
+        async function cargarProductos(){
+            try{
+                setLoading(true)
+                const resp= await getProductos()
+                setProductos(Array.isArray(resp?.data) ? resp.data : [])
+            } catch(err){
+                console.error(err)
+                setError(err.message || 'Error al cargar los productos')
+            } finally{
+                setLoading(false)
+            }
+        }
+        cargarProductos()
+    }, [])
+
     return (
         
         <div className="bg-slate-800 text-slate-100 ">
@@ -36,16 +61,15 @@ export function Home(){
 
                 {/* Grid de piezas */}
                 <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-black">
-                    {productos.map((p) => (
-                        <ProductCard 
-                            key={p.id} 
-                            id={p.id}
-                            name={p.name}
-                            image={p.image}
-                            description={p.description}
-                            cost={p.cost}
-                            initialIsAdded={p.isAdded}
-                        />                               
+                    {productos.map((producto) => (
+                    <ProductCard
+                        key={producto.id_producto}
+                        id={producto.id_producto}
+                        name={producto.nombre}
+                        description={producto.descripcion}
+                        cost={`$${producto.precio}`}
+                        image={BASE_IMG_URL +producto.archivo} 
+                    />
                     ))}
                 </div>
             </section>

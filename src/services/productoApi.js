@@ -1,7 +1,7 @@
 import * as tokenService from '../services/tokenService'
 
-// const BASE_URL = 'https://68d05d6bec1a5ff3382718f5.mockapi.io/api/courses';
-const BASE_URL = 'http://127.0.0.1:8000/api/producto/';
+
+const BASE_URL = 'http://127.0.0.1:8000/api/productos/';
 
 /**
  * Funcion auxiliar para hacer las peticiones API-REST
@@ -21,7 +21,7 @@ async function request(path='',options={}){
                 });
     if (!res.ok){
         //extraemos el mensaje del error, si no existe ''
-        const text = await res.text.cath(() => '' );
+        const text = await res.text().catch(() => '' );
         //creamos una instancia de Error
         const err = new Error(`Request failed ${res.status}`)
         //completamos informacion del error
@@ -123,36 +123,36 @@ async function requestWithRefresh(path='',options={}, isRetry=false){
 /* FUNCIONES ASOCIADAS AL CRUD */
 
 /**
- * Funcion para obtener todos los cursos
+ * Funcion para obtener todos los productos
  */
-export function getProducto(){
+export function getProductos(){
     //llamamos a la funcion request sin parametros, para poder conectar por medio de GET
     //a la URL_BASE
     return requestWithRefresh();
 }
 
 /**
- * Funcion para obtener un curso particular por su ID
+ * Funcion para obtener un producto particular por su ID
  */
-export function getProducto(id){
+export function getProductoById(id){
     // lo puedo convertir a string para asegurarme.
     return requestWithRefresh(String(id));
 }
 
 /**
- * Funcion para crear un curso
- * @param { object } producto: un objeto con los datos del curso a crear
+ * Funcion para crear un producto
+ * @param { object } producto: un objeto con los datos del producto a crear
  */
 export function createProducto(producto){
-    // Hacer la peticion POST, enviando el curso en el cuerpo en formato JSON
+    // Hacer la peticion POST, enviando el producto en el cuerpo en formato JSON
     const options = { method : 'POST', body: JSON.stringify(producto) };
     return requestWithRefresh('',options);
 }
 
 /**
- * Function para editar un curso
- * @param { number } id: id del curso a modificar
- * @param { object } updates: un objecto con los datos del curso a modificar
+ * Function para editar un producto
+ * @param { number } id: id del producto a modificar
+ * @param { object } updates: un objecto con los datos del producto a modificar
  */
 export function updateProducto(id,updates){
     const options = { method: 'PUT', body: JSON.stringify(updates)}
@@ -160,8 +160,8 @@ export function updateProducto(id,updates){
 }
 
 /**
- * Funcion para eliminar un curso
- * @param { number } id: id del curso a modificar
+ * Funcion para eliminar un producto
+ * @param { number } id: id del producto a modificar
  */
 export function deleteProducto(id){
     const options = { method : 'DELETE'};

@@ -34,8 +34,13 @@ export function ContactForm() {
                         className="block w-full resize-y rounded-xl border border-slate-700 bg-slate-900/60 px-4 py-2.5 text-sm placeholder-slate-400 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500"></textarea>
                 </div>        
                 <div>
-                    <button type="submit"
-                        className="inline-flex items-center rounded-xl bg-indigo-500 px-4 py-2.5 text-sm font-medium text-white shadow hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button 
+                        type="button"
+                        className="inline-flex items-center rounded-xl bg-indigo-500 px-4 py-2.5 text-sm font-medium text-white shadow hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        onClick={() => {
+                                alert('Flujo  todavía no implementado 😅');
+                            }}
+                        >
                         Enviar mensaje
                     </button>
                 </div>

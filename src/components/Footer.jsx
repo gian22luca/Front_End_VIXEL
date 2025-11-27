@@ -26,15 +26,7 @@ export function Footer() {
             >
               Productos
             </NavLink></li>
-          <li><NavLink
-              to="/servicios"
-              className={({ isActive }) =>
-                "flex items-center px-4 -mb-1 border-b-2 " +
-                (isActive ? "border-violet-600 text-violet-600" : "border-transparent")
-              }
-            >
-              Servicios
-            </NavLink></li>
+       
           <li><NavLink
               to="/contacto"
               className={({ isActive }) =>

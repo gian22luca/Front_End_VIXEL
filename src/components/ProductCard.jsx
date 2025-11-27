@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+
 export function ProductCard({
   id = 0,
   name = 'Nombre del prodcucto',
