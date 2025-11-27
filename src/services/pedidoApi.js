@@ -1,8 +1,12 @@
 import * as tokenService from '../services/tokenService'
 
 
-const BASE_URL = 'http://127.0.0.1:8000/api/pedidos/';
-const BASE_URL_PEDIDO_ITEMS = 'http://127.0.0.1:8000/api/pedidoItemView/';
+const BASE_URL = import.meta.env.VITE_AUTH_URL ?
+                    import.meta.env.VITE_API_URL+'/pedidos/'
+                    :'http://127.0.0.1:8000/api/pedidos/';
+const BASE_URL_PEDIDO_ITEMS = import.meta.env.VITE_AUTH_URL ?
+                                import.meta.env.VITE_API_URL+'/pedidoItemView/'
+                                :'http://127.0.0.1:8000/api/pedidoItemView/';
 
 
 async function request(path = '', options = {}) {

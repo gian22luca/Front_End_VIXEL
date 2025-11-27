@@ -1,8 +1,18 @@
 // CAPA DE SERVICIO PARA MANEJO DE ACCESS y REFRESH TOKENS
 
 //URLs de la API de backend para obtener access_token y refresh_token 
-const AUTH_URL = 'http://127.0.0.1:8000/api/token/'
-const REFRESH_URL = 'http://127.0.0.1:8000/api/token/refresh/'
+
+
+const AUTH_URL = import.meta.env.VITE_AUTH_URL ?
+                    import.meta.env.VITE_API_URL+'/token/'
+                    :'http://127.0.0.1:8000/api/token/';
+
+
+const REFRESH_URL = import.meta.env.VITE_AUTH_URL ?
+                        import.meta.env.VITE_API_URL+'/token/refresh/'
+                        :'http://127.0.0.1:8000/api/token/refresh/';
+
+
 
 //Obtener el access token desde el localStorage
 export function getAccessToken(){
