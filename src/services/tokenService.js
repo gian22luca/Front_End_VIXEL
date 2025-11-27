@@ -10,7 +10,7 @@ const AUTH_URL = 'https://gian22luca.pythonanywhere.com/api/token/';
 const REFRESH_URL = 'https://gian22luca.pythonanywhere.com/api/token/refresh/';
 //'http://127.0.0.1:8000/api/token/refresh/';
 
-
+//para forzar el cambio
 
 //Obtener el access token desde el localStorage
 export function getAccessToken(){
